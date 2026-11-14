@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MORTIFER — Affan’s Portfolio</title>
+<style>
+:root{--bg:#f4f1ea;--fg:#14110f;--mut:#5d564d;--card:#fff;--line:#d9d2c5;--a:#d4380d;--b:#7c3aed;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07070c;--fg:#f3f1ee;--mut:#9a96a3;--card:#111119;--line:#24242f;--a:#ff5a36;--b:#8b5cf6}}
+:root[data-theme="dark"]{--bg:#07070c;--fg:#f3f1ee;--mut:#9a96a3;--card:#111119;--line:#24242f;--a:#ff5a36;--b:#8b5cf6}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+canvas#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.6}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none;opacity:.35}
+.o1{width:420px;height:420px;background:var(--a);left:-120px;top:10vh}
+.o2{width:380px;height:380px;background:var(--b);right:-100px;top:50vh}
+#glow{position:fixed;left:0;top:0;width:460px;height:460px;border-radius:50%;pointer-events:none;z-index:0;background:radial-gradient(circle,color-mix(in srgb,var(--a) 30%,transparent),transparent 65%)}
+.type{min-height:2.4em}
+.type span{border-right:2px solid var(--a);padding-right:4px;animation:bl 1s step-end infinite}
+@keyframes bl{50%{border-color:transparent}}
+#pre{position:fixed;inset:0;z-index:100;background:var(--bg);display:grid;place-items:center;text-align:center}
+#pre b{font-size:clamp(4rem,16vw,11rem);font-weight:900;letter-spacing:-.04em;display:block;line-height:1}
+#pre span{letter-spacing:.4em;font-size:.75rem;color:var(--mut)}
+#cur{position:fixed;left:0;top:0;width:16px;height:16px;border-radius:50%;background:var(--a);mix-blend-mode:difference;z-index:90;pointer-events:none;transform:translate(-50%,-50%)}
+@media(pointer:coarse){#cur,#glow{display:none}}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;display:flex;justify-content:space-between;padding:16px 5vw;z-index:20;mix-blend-mode:normal;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 60%,transparent)}
+nav b{letter-spacing:.3em;font-size:.85rem}
+nav div a{text-decoration:none;color:var(--mut);margin-left:22px;font-size:.82rem}
+nav div a:hover{color:var(--a)}
+#prog{position:fixed;top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,var(--a),var(--b));transform-origin:0 50%;transform:scaleX(0);z-index:30}
+main,footer{position:relative;z-index:1}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 5vw 60px}
+.tag{color:var(--a);letter-spacing:.35em;font-size:.72rem;text-transform:uppercase}
+h1{font-size:clamp(3.2rem,16vw,13rem);line-height:.9;margin:.1em 0;font-weight:900;letter-spacing:-.05em;display:flex;overflow:hidden;perspective:700px}
+h1 span{display:inline-block;background:linear-gradient(120deg,var(--fg),var(--a) 55%,var(--b));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.02em}
+.sub{font-size:clamp(1.1rem,2.6vw,1.7rem);color:var(--mut);max-width:760px}
+.btn{display:inline-block;padding:14px 30px;border-radius:99px;text-decoration:none;font-weight:700;margin:26px 14px 0 0}
+.btn.p{background:linear-gradient(90deg,var(--a),var(--b));color:#fff}
+.btn.g{border:1px solid var(--line)}
+.scroll{position:absolute;bottom:26px;left:5vw;font-size:.7rem;letter-spacing:.3em;color:var(--mut)}
+.rows{padding:30px 0;overflow:hidden;position:relative;z-index:1;border-block:1px solid var(--line)}
+.row{white-space:nowrap;font-size:clamp(2rem,6vw,5rem);font-weight:900;letter-spacing:-.02em;width:max-content;color:transparent;-webkit-text-stroke:1px var(--mut)}
+.row.f{color:var(--fg);-webkit-text-stroke:0}
+.man{padding:20vh 6vw;max-width:1200px;margin:auto}
+.man p{font-size:clamp(1.6rem,4.6vw,3.6rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin:0}
+.man .w{display:inline-block;opacity:.14;margin-right:.25em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1180px;margin:auto;padding:0 5vw 14vh}
+.stat{padding:34px 20px;border:1px solid var(--line);border-radius:22px;background:var(--card);text-align:center}
+.stat b{font-size:clamp(3rem,7vw,5rem);display:block;line-height:1;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--mut);font-size:.85rem}
+.head{padding:0 5vw 40px;max-width:1180px;margin:auto}
+h2{font-size:clamp(2.2rem,6vw,4.6rem);margin:.1em 0;letter-spacing:-.03em;line-height:1}
+.hs{overflow:hidden}
+.track{display:flex;gap:4vw;padding:0 5vw}
+.pan{flex:0 0 min(86vw,980px);min-height:68vh;border:1px solid var(--line);border-radius:28px;background:var(--card);display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.pm{position:relative;padding:44px 34px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.pm i{position:absolute;right:-40px;top:-40px;font-style:normal;font-size:16rem;font-weight:900;opacity:.14;line-height:1}
+.pm h4{font-size:clamp(1.8rem,4vw,3rem);margin:0 0 8px;line-height:1.05;letter-spacing:-.02em;position:relative}
+.pm p{margin:0;opacity:.8;position:relative}
+.pi{padding:38px 34px;display:flex;flex-direction:column;justify-content:center}
+.pi small{color:var(--a);letter-spacing:.3em;font-size:.7rem}
+.pi h3{font-size:2rem;margin:.3em 0;letter-spacing:-.02em}
+.pi p{color:var(--mut)}
+.chips span{display:inline-block;font-size:.72rem;padding:5px 13px;border-radius:99px;border:1px solid var(--line);color:var(--mut);margin:0 6px 6px 0}
+.pi .btn{align-self:flex-start;margin-top:14px}
+.insp{padding:20vh 6vw 12vh;text-align:center;max-width:1100px;margin:auto}
+.insp h2 span{display:block}
+.insp p{color:var(--mut);max-width:620px;margin:20px auto 0;font-size:1.1rem}
+.cta{text-align:center;padding:12vh 5vw}
+.cta h2{font-size:clamp(2.6rem,9vw,8rem)}
+footer{border-top:1px solid var(--line);padding:70px 5vw 40px;overflow:hidden}
+.fg{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;max-width:1180px;margin:auto}
+footer h5{margin:0 0 12px;letter-spacing:.25em;font-size:.7rem;color:var(--a)}
+footer a{display:block;text-decoration:none;color:var(--mut);margin-bottom:8px;font-size:.92rem}
+footer a:hover{color:var(--fg)}
+footer p{color:var(--mut);margin:0;font-size:.92rem}
+.big{font-size:clamp(3rem,17vw,15rem);font-weight:900;letter-spacing:-.05em;line-height:.9;text-align:center;margin:50px 0 10px;color:transparent;-webkit-text-stroke:1px var(--line);white-space:nowrap}
+.cr{text-align:center;color:var(--mut);font-size:.8rem;border-top:1px solid var(--line);padding-top:22px;max-width:1180px;margin:auto}
+.cr b{color:var(--fg)}
+@media(max-width:820px){.pan{grid-template-columns:1fr;min-height:0}.pm{min-height:260px}.stats{grid-template-columns:1fr}.fg{grid-template-columns:1fr}.track{flex-direction:column}.pan{flex:none;width:100%}nav div a:nth-child(n+3){display:none}}
+</style>
+</head>
+<body>
+<div id="pre"><div><b id="pc">0</b><span>LOADING MORTIFER</span></div></div>
+<div id="cur"></div><div id="prog"></div>
+<canvas id="bg"></canvas><div class="orb o1"></div><div class="orb o2"></div><div id="glow"></div>
+<nav><b>MORTIFER</b><div><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+<main>
+<section class="hero">
+<div class="tag">Affan · Web Developer & Builder</div>
+<h1 id="h1">MORTIFER</h1>
+<div class="sub type"><span id="tw"></span></div>
+<div><a class="btn p mag" href="#work">See my work</a><a class="btn g mag" href="https://github.com/mortifer-inferno" target="_blank" rel="noopener">GitHub ↗</a></div>
+<div class="scroll">SCROLL ↓</div>
+</section>
+<div class="rows"><div class="row f" id="r1">MODESTIA DUX ✦ URBAN CABS ✦ OLTERA ✦ MODESTIA DUX ✦ URBAN CABS ✦ OLTERA ✦</div><div class="row" id="r2">DESIGN ✦ BUILD ✦ SHIP ✦ DESIGN ✦ BUILD ✦ SHIP ✦ DESIGN ✦ BUILD ✦ SHIP ✦</div></div>
+<section class="man" id="about"><p id="man">Every project starts as an empty page. I turn it into a store, a booking engine or a study platform, and I ship it for real. No templates, no shortcuts, just obsessive detail.</p></section>
+<div class="stats"><div class="stat"><b data-n="3">0</b><span>Live websites</span></div><div class="stat"><b data-n="3">0</b><span>Industries: fashion, travel, education</span></div><div class="stat"><b data-n="1">0</b><span>Builder behind all of it</span></div></div>
+<div class="head" id="work"><div class="tag">Selected work</div><h2>Real sites. Live right now.</h2></div>
+<section class="hs"><div class="track" id="track">
+<article class="pan"><div class="pm" style="background:linear-gradient(135deg,#0B172E,#25508f)"><i>01</i><h4>Restraint, well made.</h4><p>A small collection of designer fashion, built to last.</p></div>
+<div class="pi"><small>FASHION · E-COMMERCE</small><h3>Modestia Dux</h3><p>A luxury storefront with categories, product options, a working cart and a feedback section. Quiet, elegant and fast.</p><div class="chips"><span>Cart</span><span>Responsive</span><span>Catalogue</span></div><a class="btn p mag" href="https://mortifer-inferno.github.io/my-shop-demo-advanced" target="_blank" rel="noopener">Visit live →</a></div></article>
+<article class="pan"><div class="pm" style="background:linear-gradient(135deg,#0c4a43,#23a07f)"><i>02</i><h4>The backwaters wait.</h4><p>Chauffeured travel across Kerala.</p></div>
+<div class="pi"><small>TRAVEL · BOOKING</small><h3>Urban Cabs</h3><p>A Kerala taxi and tour-package site with a reservation form, five curated routes, a six-car fleet and search-optimised content.</p><div class="chips"><span>Booking form</span><span>Packages</span><span>SEO</span></div><a class="btn p mag" href="https://mortifer-inferno.github.io/kayal-taxi" target="_blank" rel="noopener">Visit live →</a></div></article>
+<article class="pan"><div class="pm" style="background:linear-gradient(135deg,#232323,#7a6234)"><i>03</i><h4>Language that opens doors.</h4><p>IELTS coaching and study abroad guidance.</p></div>
+<div class="pi"><small>EDUCATION · INTERACTIVE</small><h3>Oltera Language Studio</h3><p>An IELTS prep platform with a timed reading test, a Task 2 writing checker, visa checklists, study plans and 18 destinations.</p><div class="chips"><span>Timed test</span><span>Checklists</span><span>Light & dark</span></div><a class="btn p mag" href="https://mortifer-inferno.github.io/oltera" target="_blank" rel="noopener">Visit live →</a></div></article>
+</div></section>
+<section class="insp"><div class="tag">Mindset</div><h2><span>Discipline</span><span>over talent.</span></h2><p>I admire Cristiano Ronaldo for one thing above all: he turned work ethic into greatness. That is how I build. Show up daily, sweat the details, never settle for good enough.</p></section>
+<section class="cta" id="contact"><h2>Let’s build yours.</h2><p style="color:var(--mut)">Have an idea? I’ll turn it into a live website.</p><a class="btn p mag" href="https://github.com/mortifer-inferno" target="_blank" rel="noopener">Find me on GitHub</a></section>
+</main>
+<footer>
+<div class="fg"><div><h5>MORTIFER</h5><p>Affan — web developer and builder. Designing, coding and shipping websites that feel premium.</p></div>
+<div><h5>PROJECTS</h5><a href="https://mortifer-inferno.github.io/my-shop-demo-advanced" target="_blank" rel="noopener">Modestia Dux</a><a href="https://mortifer-inferno.github.io/kayal-taxi" target="_blank" rel="noopener">Urban Cabs</a><a href="https://mortifer-inferno.github.io/oltera" target="_blank" rel="noopener">Oltera Language Studio</a></div>
+<div><h5>CONNECT</h5><a href="https://github.com/mortifer-inferno" target="_blank" rel="noopener">GitHub · mortifer-inferno</a><a href="#work">Work</a><a href="#top" id="up">Back to top ↑</a></div></div>
+<div class="big" id="big">MORTIFER</div>
+<div class="cr">Designed, coded & built by <b>MORTIFER (Affan)</b> · Animations powered by GSAP · © 2026 All rights reserved</div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+var pre=document.getElementById("pre");
+function split(el,w){var t=el.textContent;el.textContent="";var o=[];(w?t.split(" "):t.split("")).forEach(function(c,i,a){var s=document.createElement("span");s.textContent=c;if(w){s.className="w"}el.appendChild(s);if(w&&i<a.length-1)el.appendChild(document.createTextNode(" "));o.push(s)});return o}
+if(!window.gsap){pre.style.display="none";return}
+gsap.registerPlugin(ScrollTrigger);
+var letters=split(document.getElementById("h1"));
+var words=split(document.getElementById("man"),true);
+var cnt={v:0},pc=document.getElementById("pc");
+var tl=gsap.timeline();
+tl.to(cnt,{v:100,duration:1.4,ease:"power2.inOut",onUpdate:function(){pc.textContent=Math.round(cnt.v)}})
+.to(pre,{yPercent:-100,duration:.9,ease:"power4.inOut"})
+.from(letters,{yPercent:120,rotateX:-90,opacity:0,duration:1.1,stagger:.06,ease:"power4.out"},"-=.3")
+.from(".tag,.sub,.hero .btn,.scroll",{y:40,opacity:0,duration:.9,stagger:.12,ease:"power3.out"},"-=.7")
+.from("nav",{y:-80,opacity:0,duration:.7},"-=.8");
+gsap.to(".o1",{y:300,scrollTrigger:{trigger:"body",start:"top top",end:"bottom bottom",scrub:1}});
+gsap.to(".o2",{y:-300,scrollTrigger:{trigger:"body",start:"top top",end:"bottom bottom",scrub:1}});
+gsap.to("#prog",{scaleX:1,ease:"none",scrollTrigger:{trigger:"body",start:"top top",end:"bottom bottom",scrub:.3}});
+gsap.to("h1",{yPercent:-25,opacity:.15,scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:true}});
+gsap.to("#r1",{xPercent:-35,ease:"none",scrollTrigger:{trigger:".rows",start:"top bottom",end:"bottom top",scrub:1}});
+gsap.fromTo("#r2",{xPercent:-35},{xPercent:0,ease:"none",scrollTrigger:{trigger:".rows",start:"top bottom",end:"bottom top",scrub:1}});
+gsap.to(words,{opacity:1,stagger:.1,ease:"none",scrollTrigger:{trigger:".man",start:"top 75%",end:"bottom 55%",scrub:1}});
+gsap.from(".stat",{y:90,opacity:0,scale:.9,stagger:.15,duration:1,ease:"power3.out",scrollTrigger:{trigger:".stats",start:"top 85%"}});
+document.querySelectorAll("[data-n]").forEach(function(el){var o={v:0},n=+el.dataset.n;gsap.to(o,{v:n,duration:1.6,ease:"power2.out",scrollTrigger:{trigger:el,start:"top 90%"},onUpdate:function(){el.textContent=Math.round(o.v)}})});
+gsap.from(".head h2,.head .tag",{y:70,opacity:0,stagger:.12,duration:1,scrollTrigger:{trigger:".head",start:"top 85%"}});
+var mm=gsap.matchMedia();
+mm.add("(min-width:821px)",function(){
+var tr=document.getElementById("track");
+gsap.to(tr,{x:function(){return -(tr.scrollWidth-innerWidth)},ease:"none",scrollTrigger:{trigger:".hs",start:"top top+=70",pin:true,scrub:1,invalidateOnRefresh:true,end:function(){return "+="+(tr.scrollWidth-innerWidth)}}});
+gsap.utils.toArray(".pm h4").forEach(function(h){gsap.from(h,{x:120,opacity:0,scrollTrigger:{trigger:h.closest(".pan"),containerAnimation:null,start:"left 90%",toggleActions:"play none none reverse"}})});
+});
+mm.add("(max-width:820px)",function(){
+gsap.utils.toArray(".pan").forEach(function(p){gsap.from(p,{y:100,opacity:0,duration:1,scrollTrigger:{trigger:p,start:"top 88%"}})});
+});
+gsap.from(".insp h2 span",{yPercent:100,opacity:0,stagger:.2,duration:1.1,ease:"power4.out",scrollTrigger:{trigger:".insp",start:"top 70%"}});
+gsap.from(".insp .tag,.insp p",{y:50,opacity:0,stagger:.2,duration:1,scrollTrigger:{trigger:".insp",start:"top 65%"}});
+gsap.from(".cta h2,.cta p,.cta .btn",{y:80,opacity:0,stagger:.15,duration:1,scrollTrigger:{trigger:".cta",start:"top 80%"}});
+gsap.from(".fg>div",{y:60,opacity:0,stagger:.15,duration:.9,scrollTrigger:{trigger:"footer",start:"top 85%"}});
+gsap.from("#big",{yPercent:60,opacity:0,duration:1.3,ease:"power4.out",scrollTrigger:{trigger:"#big",start:"top 100%"}});
+var cur=document.getElementById("cur"),qx=gsap.quickTo(cur,"x",{duration:.25}),qy=gsap.quickTo(cur,"y",{duration:.25});
+var gl=document.getElementById("glow");gsap.set(gl,{xPercent:-50,yPercent:-50,x:innerWidth/2,y:innerHeight*.35});var gx=gsap.quickTo(gl,"x",{duration:.7,ease:"power3"}),gy=gsap.quickTo(gl,"y",{duration:.7,ease:"power3"});
+var ws=["I build websites that people remember.","Fashion. Travel. Education. Shipped live.","Designed, coded and launched by one person."],wi=0,ci=0,dl=false,tw=document.getElementById("tw");
+function tick(){var w=ws[wi];tw.textContent=w.slice(0,ci);if(!dl&&ci<w.length){ci++;setTimeout(tick,55)}else if(!dl){dl=true;setTimeout(tick,1500)}else if(ci>0){ci--;setTimeout(tick,25)}else{dl=false;wi=(wi+1)%ws.length;setTimeout(tick,300)}}
+setTimeout(tick,2600);
+addEventListener("pointermove",function(e){qx(e.clientX);qy(e.clientY);gx(e.clientX);gy(e.clientY)});
+document.querySelectorAll("a").forEach(function(a){a.addEventListener("pointerenter",function(){gsap.to(cur,{scale:3,duration:.3})});a.addEventListener("pointerleave",function(){gsap.to(cur,{scale:1,duration:.3})})});
+document.querySelectorAll(".mag").forEach(function(b){b.addEventListener("pointermove",function(e){var r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.35,y:(e.clientY-r.top-r.height/2)*.35,duration:.3})});b.addEventListener("pointerleave",function(){gsap.to(b,{x:0,y:0,duration:.6,ease:"elastic.out(1,.4)"})})});
+document.getElementById("up").addEventListener("click",function(e){e.preventDefault();gsap.to(window,{scrollTo:0,duration:0});window.scrollTo({top:0,behavior:"smooth"})});
+var cv=document.getElementById("bg"),x=cv.getContext("2d"),P=[];
+function rs(){cv.width=innerWidth;cv.height=innerHeight}rs();addEventListener("resize",rs);
+for(var i=0;i<60;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,v:.15+Math.random()*.5,r:Math.random()*1.8+.4});
+(function dr(){x.clearRect(0,0,cv.width,cv.height);x.fillStyle=getComputedStyle(document.documentElement).getPropertyValue("--a").trim()||"#ff5a36";x.globalAlpha=.5;P.forEach(function(p){p.y-=p.v;if(p.y<0){p.y=cv.height;p.x=Math.random()*cv.width}x.beginPath();x.arc(p.x,p.y,p.r,0,6.3);x.fill()});requestAnimationFrame(dr)})();
+})();
+</script>
+</body>
+</html>
