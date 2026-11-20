@@ -8,19 +8,6 @@
 <meta name="keywords" content="MORTIFER web developer, mortifer web developer, MORTIFER portfolio, Affan web developer, hire MORTIFER, MORTIFER, mortifer, Affan, mortifer-inferno, mortifer-inferno github, web developer, freelance web developer, website designer, frontend developer, web developer portfolio, portfolio website, GSAP animation, animated website, responsive website design, custom website, landing page design, web design services, hire web developer, website developer India, e-commerce website, online store website, fashion store website, Modestia Dux, luxury fashion store, shopping cart website, taxi booking website, Kerala taxi, Kerala tour packages, Urban Cabs, Kochi cab, airport taxi Kerala, chauffeur car rental, cab booking website, IELTS coaching website, IELTS preparation, IELTS practice test, IELTS writing checker, study abroad consultant, study abroad website, visa checklist, Oltera Language Studio, language studio website, GitHub Pages website">
 <meta name="author" content="MORTIFER (Affan)">
 <meta name="google-site-verification" content="R-SHiugMUBb0_GUMqrOgNwIX_E6ATP0AJtIbn6kDp38" />
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="theme-color" content="#07070c">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MORTIFER Portfolio">
-<meta property="og:title" content="MORTIFER (Affan) — Web Developer Portfolio">
-<meta property="og:description" content="Animated, mobile-friendly websites: online stores, taxi booking sites and IELTS platforms. See the live projects.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MORTIFER (Affan) — Web Developer Portfolio">
-<meta name="twitter:description" content="Animated, mobile-friendly websites: online stores, taxi booking sites and IELTS platforms. See the live projects.">
-<meta name="description" content="MORTIFER (Affan) is a web developer building animated, mobile-friendly websites: online stores, taxi and tour booking sites and IELTS learning platforms. See live projects and get in touch.">
-<meta name="keywords" content="MORTIFER, Affan, mortifer-inferno, web developer, freelance web developer, website designer, frontend developer, web developer portfolio, portfolio website, GSAP animation, animated website, responsive website design, custom website, landing page design, web design services, hire web developer, website developer India, e-commerce website, online store website, fashion store website, Modestia Dux, luxury fashion store, shopping cart website, taxi booking website, Kerala taxi, Kerala tour packages, Urban Cabs, Kochi cab, airport taxi Kerala, chauffeur car rental, cab booking website, IELTS coaching website, IELTS preparation, IELTS practice test, IELTS writing checker, study abroad consultant, study abroad website, visa checklist, Oltera Language Studio, language studio website, GitHub Pages website">
-<meta name="author" content="MORTIFER (Affan)">
-<meta name="google-site-verification" content="R-SHiugMUBb0_GUMqrOgNwIX_E6ATP0AJtIbn6kDp38" />
 <meta name="application-name" content="MORTIFER Portfolio">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07070c">
@@ -200,6 +187,19 @@ footer a:hover{padding-left:10px;color:var(--a)}
 .cd a{display:block;padding:18px 28px;border:1px solid var(--line);border-radius:20px;background:var(--card);text-decoration:none;font-weight:700;transition:border-color .3s,color .3s}
 .cd a:hover{border-color:var(--a);color:var(--a)}
 .cd small{display:block;color:var(--a);letter-spacing:.3em;font-size:.65rem;margin-bottom:4px}
+.sk{height:320vh;position:relative}
+.skin{position:sticky;top:70px;height:calc(100vh - 70px);display:grid;grid-template-columns:.8fr 1.2fr;gap:30px;align-items:center;max-width:1180px;margin:auto;padding:0 5vw}
+.skin svg{width:100%;height:auto;max-height:72vh;overflow:visible}
+.skl h2{font-size:clamp(2rem,4.6vw,3.8rem);line-height:1;margin:.2em 0 .6em;letter-spacing:-.03em}
+.cap{display:flex;gap:16px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line);opacity:.25;transition:opacity .4s}
+.cap.on{opacity:1}
+.cap b{color:var(--a);font-size:.8rem;letter-spacing:.3em}
+.cap span{font-size:1.25rem;font-weight:800}
+.cap small{display:block;color:var(--mut);font-weight:400;font-size:.9rem}
+.dr{fill:none;stroke:var(--a);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.dr.t{stroke-width:9}
+.fl{fill:url(#skg);fill-opacity:0}
+@media(max-width:820px){.skin{grid-template-columns:1fr;align-content:center;gap:10px}.sk{height:280vh}.skl h2{font-size:1.7rem}.cap{padding:8px 0}.cap small{display:none}}
 .q{border-top:1px solid var(--line)}
 .q button{all:unset;cursor:pointer;display:flex;justify-content:space-between;width:100%;padding:24px 0;font-size:1.2rem;font-weight:700;box-sizing:border-box}
 .q button span{color:var(--a);font-size:1.6rem;transition:.3s}
@@ -231,6 +231,28 @@ footer a:hover{padding-left:10px;color:var(--a)}
 <p>So far that has meant a quiet luxury fashion store, a chauffeured travel service across Kerala, and a language studio that helps students prepare for IELTS and study abroad. Three very different businesses, and each one got its own look, its own voice and its own tools.</p>
 <p>I care about the parts people feel more than the parts they see: how a page loads, how a button responds, how a section appears as you scroll. That is where a website stops being a page and starts being an experience.</p>
 <p>I’m always learning, always shipping, and always looking for the next blank page.</p></section>
+<section class="sk" id="sketch"><div class="skin">
+<div class="skl"><div class="tag">From sketch to screen</div><h2>Watch an idea become a website.</h2>
+<div class="cap on"><b>01</b><span>Sketch<small>Every project starts as a rough idea on a blank canvas.</small></span></div>
+<div class="cap"><b>02</b><span>Build<small>Layout, motion and features take shape piece by piece.</small></span></div>
+<div class="cap"><b>03</b><span>Launch<small>Colour floods in and the site goes live.</small></span></div></div>
+<svg id="sks" viewBox="0 0 800 500" role="img" aria-label="A website being drawn from a sketch into a finished page">
+<defs><linearGradient id="skg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5a36"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs>
+<rect class="dr" x="40" y="30" width="720" height="440" rx="18"/>
+<path class="dr" d="M40 80 H760"/>
+<circle class="dr fl" cx="70" cy="55" r="6"/><circle class="dr fl" cx="92" cy="55" r="6"/><circle class="dr fl" cx="114" cy="55" r="6"/>
+<rect class="dr" x="220" y="42" width="340" height="26" rx="13"/>
+<path class="dr" d="M650 55 H680"/><path class="dr" d="M705 55 H735"/>
+<path class="dr t" d="M80 135 H400"/><path class="dr t" d="M80 168 H320"/>
+<path class="dr" d="M80 208 H390"/><path class="dr" d="M80 230 H350"/>
+<rect class="dr fl" x="80" y="252" width="140" height="44" rx="22"/>
+<circle class="dr fl" cx="610" cy="190" r="70"/><circle class="dr" cx="610" cy="190" r="95"/>
+<rect class="dr fl" x="80" y="330" width="190" height="110" rx="14"/><rect class="dr fl" x="295" y="330" width="190" height="110" rx="14"/><rect class="dr fl" x="510" y="330" width="190" height="110" rx="14"/>
+<path class="dr" d="M100 362 H190"/><path class="dr" d="M315 362 H405"/><path class="dr" d="M530 362 H620"/>
+<text id="skt" x="390" y="60" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">mortifer-inferno.github.io  ✓ LIVE</text>
+<circle id="skr" cx="150" cy="270" r="14" fill="none" stroke="#ff5a36" stroke-width="3" opacity="0"/>
+<g id="skc"><path d="M0 0 L0 30 L9 22 L16 38 L23 34 L15 19 L27 19 Z" fill="#fff" stroke="#07070c" stroke-width="2" stroke-linejoin="round"/></g>
+</svg></div></section>
 <section class="sec" id="toolkit"><div class="tag">Toolkit</div><h2>What I build with.</h2><div class="tk"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>GSAP animation</span><span>Responsive layouts</span><span>Light &amp; dark themes</span><span>Shopping carts</span><span>Booking forms</span><span>On-page SEO</span><span>GitHub Pages hosting</span></div></section>
 <div class="head" id="work"><div class="tag">Selected work</div><h2>Real sites. Live right now.</h2></div>
 <section class="hs"><div class="track" id="track">
@@ -361,6 +383,22 @@ gsap.from(".cmp div",{x:-50,opacity:0,stagger:.1,duration:.7,ease:"power3.out",s
 gsap.from(".ck label",{x:60,opacity:0,stagger:.07,duration:.6,ease:"power3.out",scrollTrigger:{trigger:".ck",start:"top 88%"}});
 (function(){var bx=document.querySelectorAll("#ck input"),bar=document.getElementById("cb"),tx=document.getElementById("ct");
 bx.forEach(function(b){b.addEventListener("change",function(){b.parentNode.classList.toggle("d",b.checked);var n=0;bx.forEach(function(x){if(x.checked)n++});gsap.to(bar,{width:(n/bx.length*100)+"%",duration:.5,ease:"power3.out"});tx.textContent=n===bx.length?"🚀 Ready to launch!":n+" of "+bx.length+" ready"})})})();
+(function(){var svg=document.getElementById("sks");if(!svg)return;
+var els=svg.querySelectorAll(".dr"),caps=document.querySelectorAll(".cap");
+els.forEach(function(e){var L=e.getTotalLength();e.style.strokeDasharray=L;e.style.strokeDashoffset=L});
+function cap(i){caps.forEach(function(c,j){c.classList.toggle("on",j===i)})}
+gsap.set("#skc",{x:690,y:390,opacity:0});gsap.set("#skt",{opacity:0,y:8});
+var T=7.4,tl=gsap.timeline({defaults:{ease:"none"},scrollTrigger:{trigger:"#sketch",start:"top top+=70",end:"bottom bottom",scrub:1}});
+tl.call(cap,[0],0).to(els,{strokeDashoffset:0,duration:1,stagger:.3},0)
+.call(cap,[1],T*.55).call(cap,[2],T)
+.to(".fl",{fillOpacity:.85,duration:1.4,stagger:.15},T)
+.to(".t",{stroke:"#8b5cf6",duration:1},T)
+.to("#skc",{opacity:1,duration:.4},T+1)
+.to("#skc",{x:150,y:268,duration:1.6,ease:"power2.inOut"},T+1.2)
+.fromTo("#skr",{scale:.2,opacity:1,svgOrigin:"150 270"},{scale:3.2,opacity:0,duration:.8},T+2.8)
+.to("#skt",{opacity:1,y:0,duration:.8},T+3)
+.to({},{duration:1.2});
+})();
 gsap.from(".ind span",{y:40,opacity:0,scale:.85,stagger:.04,duration:.6,ease:"back.out(1.6)",scrollTrigger:{trigger:".ind",start:"top 88%"}});
 var PL={store:["Online store","Product catalogue","Cart with size and colour options","Smooth checkout flow","Reviews and feedback","Mobile-first layout","Search-friendly product pages"],book:["Booking site","Packages and pricing cards","Reservation form","Fleet or service showcase","Contact and enquiry flow","Local search content","Fast mobile experience"],learn:["Learning platform","Interactive practice tests","Progress and results","Checklists and study plans","Counselling or enquiry form","Light and dark themes","Clear course pages"],biz:["Business site","Strong hero and brand story","Services and pricing sections","Contact and map details","Trust and FAQ section","Search-friendly pages","Smooth scroll animation"],port:["Personal brand","Cinematic intro","Project showcase","About and story section","Social and contact links","Custom cursor and effects","Footer credits"]};
 function pr(k,a){var d=PL[k],ul=document.getElementById("pf");document.getElementById("pt").textContent=d[0];ul.innerHTML="";d.slice(1).forEach(function(t){var li=document.createElement("li");li.textContent=t;ul.appendChild(li)});if(a)gsap.from("#pf li",{y:20,opacity:0,stagger:.07,duration:.5})}
